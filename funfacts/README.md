@@ -19,55 +19,57 @@ If you are developing a production application, we recommend updating the config
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    # Fun Facts
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+    A small React + TypeScript + Vite project that displays fun facts. This repository contains the `funfacts` app and its development configuration.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    ## Overview
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    This app demonstrates a minimal Vite + React + TypeScript setup with ESLint and basic project structure. It's intended as a starter for small React experiments.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    ## Installation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    Prerequisites: Node.js 18+ (or your preferred supported version) and npm or pnpm.
+
+    1. Install dependencies:
+
+    ```bash
+    npm install
+    # or
+    pnpm install
+    ```
+
+    2. Install only the `funfacts` workspace (if using a monorepo tooling) — otherwise step 1 is sufficient.
+
+    ## Usage
+
+    Run the development server with hot-reload:
+
+    ```bash
+    npm run dev
+    # or
+    pnpm dev
+    ```
+
+    Build for production:
+
+    ```bash
+    npm run build
+    # or
+    pnpm build
+    ```
+
+    Preview the production build locally:
+
+    ```bash
+    npm run preview
+    # or
+    pnpm preview
+    ```
+
+    ## Where to look
+
+    - Source code: `src/`
+    - Config: `vite.config.ts`, `tsconfig.*.json`, `eslint.config.js`
+
+    If you want a longer README (development setup, contributing, testing, license), tell me and I will expand this file.
